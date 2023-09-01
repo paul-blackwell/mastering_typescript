@@ -1,4 +1,6 @@
 class Player {
+  static description = 'Player in our game'; 
+
   /**
    * This is the same in JS as adding this.score = 0; in the constructor
    * and the # makes a property should only be usable inside the Player class
@@ -9,6 +11,10 @@ class Player {
   constructor(first, last) {
     this.first = first;
     this.last = last;
+  }
+
+  static randomPlayer() {
+    return new Player('Andy', 'Samberg');
   }
 
   get fullName() {
@@ -50,16 +56,28 @@ class Player {
   }
 }
 
-const player1 = new Player('blue', 'steele');
+class AdminPlayer extends Player {
+  constructor(first, last, powers) {
+    super(first, last);
+    this.powers = powers;
+  }
 
-player1.loseLife()
-player1.updateScore(1)
-console.log(player1.getScore())
-player1.fullName = 'Amy Adams'
-console.log(player1.fullName)
-player1.score = 10;
-console.log(player1.score)
+  isAdmin = true;
+}
+
+//const player1 = new Player('blue', 'steele');
+
+// player1.loseLife()
+// player1.updateScore(1)
+// console.log(player1.getScore())
+// player1.fullName = 'Amy Adams'
+// console.log(player1.fullName)
+// player1.score = 10;
+// console.log(player1.score)
 
 // const player2 = new Player('charlie', 'brown');
 // player2.taunt();
 // console.log(player2.first)
+
+const admin = new AdminPlayer('admin', 'mc admin', ['delete', 'restore world']);
+console.log(admin);
