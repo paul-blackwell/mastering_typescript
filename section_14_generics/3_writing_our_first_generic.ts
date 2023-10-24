@@ -19,4 +19,15 @@ function booleanIdentity(item: boolean): boolean {
 //   return item;
 // }
 
+interface Cat {
+  name: string;
+  breed: string;
+}
 
+function identity<T>(item: T): T {
+  return item;
+}
+
+identity<number>(7);
+identity<string>('Hello');
+identity<Cat>({name: 'Hades', breed: 'short hair'});
