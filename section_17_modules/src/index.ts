@@ -1,4 +1,6 @@
-import { sample, add } from './utils.js';
+import { add, sample as randomSample } from './utils.js';
+import User, { userHelper } from './User.js';
 
-console.log(sample([12, 3, 34]));
+const sample = 112223;
+console.log(randomSample([12, 3, 34]));
 console.log(add(1, 2));
