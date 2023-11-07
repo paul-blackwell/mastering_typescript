@@ -1,5 +1,5 @@
 {
-  "name": "section_18_webpack_typescript",
+  "name": "section_18",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lite-server": "^2.6.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
