@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-export default function ShoppingListForm(): JSX.Element {
+interface ShoppingListFormProps {
+  onAddItem: (item: string) => void;
+}
+
+export default function ShoppingListForm({ onAddItem }: ShoppingListFormProps): JSX.Element {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log('Submitted')
+    const newProduct = inputRef.current?.value;
+    if (newProduct) onAddItem(newProduct);
+     inputRef.current!.value = '';
   }
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <input type="text" placeholder="Product Name" />
-      <button type='submit'>Add Item</button>
+      <input type="text" placeholder="Product Name" ref={inputRef} />
+      <button type="submit">Add Item</button>
     </form>
   );
 }
